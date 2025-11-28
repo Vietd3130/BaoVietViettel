@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng Kho Sim & Gói Cước Viettel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+    <header class="bg-gradient-to-br from-[#ee0033] to-[#ff4d4d] text-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-white p-1 rounded-full">
+                    <span class="text-[#ee0033] font-bold text-xl px-1">Vt</span>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Đại Lý Viettel</h1>
+                    <p class="text-xs opacity-90">Uy tín - Nhanh chóng</p>
+                </div>
+            </div>
+            <a href="tel:0354213785" class="bg-white text-[#ee0033] px-3 py-1.5 rounded-full text-sm font-bold shadow-sm hover:bg-gray-100 flex items-center transition-colors">
+                <i data-lucide="phone" class="w-4 h-4 mr-1"></i>
+                0354.213.785
+            </a>
+        </div>
+    </header>
+
+    <div class="bg-white border-b border-gray-100 sticky top-[60px] z-30 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4 text-center">
+            <div id="filter-container" class="flex overflow-x-auto pb-2 space-x-2 no-scrollbar justify-start sm:justify-center">
+                </div>
+        </div>
+    </div>
+
+    <main class="flex-grow bg-slate-50 py-6">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="mb-4 flex items-center text-gray-700 font-bold">
+                <i id="category-icon" data-lucide="zap" class="mr-2 text-[#ee0033]"></i>
+                <span id="category-title" class="uppercase">DANH SÁCH GÓI CƯỚC</span>
+            </div>
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                </div>
+            <div id="empty-state" class="hidden text-center py-12">
+                <div class="bg-gray-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="smartphone" class="text-gray-400 w-8 h-8"></i>
+                </div>
+                <p class="text-gray-500">Hiện chưa có dữ liệu cho mục này.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="font-bold text-lg mb-2">Tổng Kho Sim & Gói Cước</h3>
+            <p class="text-gray-400 text-sm mb-4">Kho Sim số đẹp - Gói cước 4G Viettel giá rẻ.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://zalo.me/0354213785" target="_blank" class="bg-blue-600 p-2 rounded-full hover:bg-blue-700 transition-colors flex items-center">
+                    <span class="font-bold text-xs px-2">Zalo</span>
+                </a>
+                <a href="https://www.facebook.com/share/1FyYM5saKm/" target="_blank" class="bg-blue-500 p-2 rounded-full hover:bg-blue-600 transition-colors">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+            </div>
+            <p class="text-xs text-gray-500 mt-6">© 2024 Design by Tổng Kho Sim & Gói Cước</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md relative z-10 overflow-hidden animate-fade-in max-h-[90vh] overflow-y-auto">
+            <div class="bg-[#ee0033] p-4 flex justify-between items-center text-white sticky top-0 z-20">
+                <h3 id="modal-title" class="font-bold text-lg">Đăng Ký Gói Cước</h3>
+                <button onclick="closeModal()" class="hover:bg-red-700 p-1 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="text-center mb-6">
+                    <p id="modal-subtitle" class="text-gray-500 text-sm mb-1">Gói cước:</p>
+                    <h2 id="modal-item-name" class="text-3xl font-bold text-[#ee0033] mb-1">TÊN GÓI</h2>
+                    <p class="font-semibold text-gray-800">
+                        <span id="modal-item-price">0đ</span> 
+                        <span id="modal-item-duration" class="text-sm font-normal text-gray-500"></span>
+                    </p>
+                </div>
+                <div class="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6">
+                    <h4 class="font-bold text-blue-800 text-sm mb-2 flex items-center">
+                        <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i>
+                        Lưu ý trước khi mua:
+                    </h4>
+                    <p id="modal-note" class="text-sm text-blue-700 mb-2">Vui lòng inbox để kiểm tra ưu đãi!</p>
+                </div>
+                <div class="space-y-3 pb-2">
+                    <a id="btn-zalo" href="#" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-md transition-transform active:scale-95">
+                        <span class="font-bold mr-2 text-xl">Z</span> Inbox qua Zalo
+                    </a>
+                    <a id="btn-fb" href="#" target="_blank" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-md transition-transform active:scale-95">
+                        <i data-lucide="facebook" class="w-5 h-5 mr-2"></i> Inbox qua Facebook
+                    </a>
+                    <a id="btn-sms" href="#" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3.5 rounded-xl flex items-center justify-center transition-colors">
+                        <i data-lucide="send" class="w-5 h-5 mr-2"></i> Gửi tin nhắn SMS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
