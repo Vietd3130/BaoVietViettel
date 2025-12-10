@@ -4,7 +4,7 @@ const CONTACT_INFO = {
     name: "Tổng Kho Sim & Gói Cước"
 };
 
-const PACKAGES = [
+const PACKAGES = [   
     // GÓI THÁNG
     { id: 'sd90', name: 'SD90', price: 90000, data: '1.5GB/Ngày', duration: '30 Ngày', type: 'month', desc: '45GB/tháng. Gói cước quốc dân.', hot: true, perks: [] },
     { id: 'sd120', name: 'SD120', price: 120000, data: '2GB/Ngày', duration: '30 Ngày', type: 'month', desc: '60GB/tháng. Lướt web mượt mà.', hot: false, perks: [] },
@@ -28,7 +28,7 @@ const PACKAGES = [
     // GÓI 12 THÁNG
     { id: '12sd90', name: '12SD90', price: 1080000, data: '1.5GB/Ngày', duration: '360 Ngày', type: 'year', desc: 'Mua 1 lần dùng cả năm.', hot: true, perks: [] },
     { id: '12mxh100', name: '12MXH100', price: 1200000, data: '1GB/Ngày', duration: '360 Ngày', type: 'year', desc: 'Free All Social trọn đời.', hot: true, perks: ['Free Social'] },
-    { id: '12t5g160b', name: '12T5G150B', price: 1800000, data: '4GB/Ngày', duration: '360 Ngày', type: 'year', desc: 'MP 10 phút/cuộc nội (1000p), 200p ngoại, TV360 Basic, 20GB MyBox.', hot: false, perks: ['Free TV360'] }
+    { id: '12t5g160b', name: '12T5G150B', price: 1800000, data: '4GB/Ngày', duration: '360 Ngày', type: 'year', desc: 'M 10 phút/cuộc nội (1000p), 200p ngoại, TV360 Basic, 20GB MyBox.', hot: false, perks: ['Free TV360'] }
 ];
 
 const SIM_LIST = [
